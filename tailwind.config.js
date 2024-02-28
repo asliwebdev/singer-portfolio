@@ -9,6 +9,11 @@ module.exports = {
     extend: {
       colors: {
         "neutral-content": "#404040",
+        green: "#027E5F",
+        brown: "#DFE399",
+      },
+      fontSize: {
+        clampH1: "clamp(2.25rem, 5vw, 4.5rem)",
       },
     },
   },

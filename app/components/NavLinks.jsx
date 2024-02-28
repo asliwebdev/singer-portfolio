@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { navLinks } from "../lib";
+import { usePathname } from "next/navigation";
 
-const NavLinks = ({ pathname }) => {
+const NavLinks = () => {
+  const pathname = usePathname();
   return (
     <>
       {navLinks.map((link, index) => {
@@ -10,9 +14,7 @@ const NavLinks = ({ pathname }) => {
             <Link
               href={link.url}
               className={`capitalize ${
-                link.url === pathname
-                  ? "text-[#50C878]"
-                  : "text-neutral-content"
+                link.url === pathname ? "text-green" : "text-neutral-content"
               } text-[16px]`}
             >
               {link.text}

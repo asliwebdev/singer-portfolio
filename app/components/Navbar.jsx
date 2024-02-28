@@ -1,20 +1,16 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { FiMenu } from "react-icons/fi";
 import NavLinks from "./NavLinks";
 
 const Navbar = () => {
-  const pathname = usePathname();
   return (
-    <div className="bg-[#DFE399] px-4 lg:px-16 h-[60px] flex items-center">
-      <div className="w-full flex justify-between items-center">
+    <div className="bg-brown h-[60px] px-4 lg:px-16 flex items-center justify-center">
+      <div className="flex justify-between items-center w-full">
         <Link href="/" className="text-black text-lg font-medium">
           Asadbek Odilov
         </Link>
         <ul className="hidden lg:flex gap-8">
-          <NavLinks pathname={pathname} />
+          <NavLinks />
         </ul>
         <div className="dropdown dropdown-end lg:hidden">
           <div
@@ -26,9 +22,9 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#DFE399] rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-brown rounded-box w-52"
           >
-            <NavLinks pathname={pathname} />
+            <NavLinks />
           </ul>
         </div>
       </div>

@@ -35,3 +35,7 @@
 .nav-links a:hover::after {
   transform: scale(1);
 }
+
+.hero-shadow {
+  box-shadow: 0 0 9px #dfe399;
+}
