@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse lg:flex-row justify-between px-4 lg:pl-16 lg:pr-0">
         <div className="flex justify-end flex-col p-6">
           <h1 className="text-clampH1 text-brown">Asadbek Odilov</h1>
-          <p className="mt-3 text-white sm:text-lg md:text-xl lg:text-3xl max-w-3xl">
+          <p className="mt-3 text-white sm:text-lg md:text-xl lg:text-2xl max-w-xl">
             a professional singer captivating hearts throughout whole Uzbekistan
           </p>
           <div className="mt-12 mb-32 flex flex-col-reverse lg:flex-row gap-8">
@@ -37,12 +37,11 @@ const Hero = () => {
         </div>
         <div className="flex items-center p-6">
           <Image
-            src="/asadbek_hero.JPG"
+            src="/asadbek.png"
             alt="hero image"
-            width={630}
-            height={600}
+            width={640}
+            height={640}
             priority
-            className="rounded-3xl hero-shadow max-lg:w-full"
           />
         </div>
       </div>

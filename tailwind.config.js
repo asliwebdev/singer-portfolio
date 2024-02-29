@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         "neutral-content": "#404040",
         green: "#027E5F",
-        brown: "#DFE399",
+        brown: "#f3c23c",
       },
       fontSize: {
         clampH1: "clamp(2.25rem, 5vw, 4.5rem)",
