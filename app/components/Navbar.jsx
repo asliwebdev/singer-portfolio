@@ -4,7 +4,7 @@ import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   return (
-    <div className="bg-brown h-[60px] px-4 lg:px-16 flex items-center justify-center">
+    <div className="bg-brown h-[60px] px-4 lg:px-36 flex items-center justify-center">
       <div className="flex justify-between items-center w-full">
         <Link href="/" className="text-black text-lg font-medium">
           Asadbek Odilov

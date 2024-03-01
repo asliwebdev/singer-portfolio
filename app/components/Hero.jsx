@@ -5,8 +5,8 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-60px)]">
-      <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse lg:flex-row justify-between px-4 lg:pl-16 lg:pr-0">
-        <div className="flex justify-end flex-col p-6">
+      <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse lg:flex-row justify-between px-4 lg:px-16">
+        <div className="lg:pl-20 flex justify-end flex-col p-6">
           <h1 className="text-clampH1 text-brown">Asadbek Odilov</h1>
           <p className="mt-3 text-white sm:text-lg md:text-xl lg:text-2xl max-w-xl">
             a professional singer captivating hearts throughout whole Uzbekistan
@@ -28,19 +28,20 @@ const Hero = () => {
               })}
             </ul>
             <Link
-              className="bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-neutral-content border border-brown transition-colors duration-300"
+              className="bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
               href="/music"
             >
               Listen to my musics
             </Link>
           </div>
         </div>
-        <div className="flex items-center p-6">
+        <div className="flex items-center justify-start p-6">
           <Image
             src="/asadbek.png"
             alt="hero image"
             width={640}
             height={640}
+            className="opacity-70"
             priority
           />
         </div>

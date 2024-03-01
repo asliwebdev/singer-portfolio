@@ -14,7 +14,7 @@ const NavLinks = () => {
             <Link
               href={link.url}
               className={`capitalize ${
-                link.url === pathname ? "text-green" : "text-neutral-content"
+                link.url === pathname ? "text-green" : "text-black"
               } text-[16px]`}
             >
               {link.text}
