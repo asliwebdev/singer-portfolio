@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 
 const iframes = [
@@ -11,20 +10,13 @@ const iframes = [
 ];
 
 const VideosSlider = () => {
-  useEffect(() => {
-    // Load YouTube API script
-    const script = document.createElement("script");
-    script.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(script);
-  }, []);
-
   const handleClick = (index) => {
     const player = document.getElementById(`iframe${index}`);
     const temp = player.src;
     player.src = temp;
   };
   return (
-    <div className="px-4 lg:px-36 py-6 lg:py-12">
+    <div className="bg-gradient px-4 lg:px-36 py-6 lg:py-12">
       <h2 className="text-brown text-5xl text-center">Featured Videos</h2>
       <div className="mt-6 lg:mt-20 carousel w-full">
         {iframes.map((iframe, index) => {
@@ -51,10 +43,10 @@ const VideosSlider = () => {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="w-full"
-                height={500}
+                className="w-full lg:w-[70%] m-[0_auto]"
+                height={400}
               ></iframe>
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 lg:px-20">
                 <Link
                   href={`#slide${prevIndex}`}
                   className="btn btn-circle border-brown text-brown hover:bg-brown hover:text-black transition-colors duration-300"

@@ -39,3 +39,15 @@
 .hero-shadow {
   box-shadow: 0 0 9px #f3c23c;
 }
+.hover\:dark-shadow:hover {
+  box-shadow: 0 0 18px #f3c23c;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    95deg,
+    rgb(29, 29, 29) 0%,
+    rgb(29, 29, 29) 100%,
+    rgb(29, 29, 29) 100%
+  );
+}

@@ -5,9 +5,11 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-60px)]">
-      <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse lg:flex-row justify-between px-4 lg:px-16">
-        <div className="lg:pl-20 flex justify-end flex-col p-6">
-          <h1 className="text-clampH1 text-brown">Asadbek Odilov</h1>
+      <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse gap-6 lg:flex-row justify-between px-4 lg:px-16">
+        <div className="lg:pl-20 flex justify-end flex-col lg:p-6">
+          <h1 className="text-clampH1 text-brown text-center lg:text-left">
+            Asadbek Odilov
+          </h1>
           <p className="mt-3 text-white sm:text-lg md:text-xl lg:text-2xl max-w-xl">
             a professional singer captivating hearts throughout whole Uzbekistan
           </p>
@@ -35,13 +37,13 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-center justify-start p-6">
+        <div className="flex items-center justify-start lg:p-6 lg:pb-0">
           <Image
             src="/asadbek.png"
             alt="hero image"
-            width={640}
+            width={650}
             height={640}
-            className="opacity-70"
+            // className="opacity-70"
             priority
           />
         </div>
