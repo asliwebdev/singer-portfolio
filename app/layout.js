@@ -9,12 +9,14 @@ export const metadata = {
   description: "Uzbek professional singer",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black text-white`}>
         <Navbar />
         {children}
+        {modal}
+        <div id="modal-root"></div>
       </body>
     </html>
   );
