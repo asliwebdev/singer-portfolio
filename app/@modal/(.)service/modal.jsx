@@ -23,7 +23,7 @@ export function Modal({ children }) {
     <div className="min-h-screen min-w-full fixed inset-0 bg-black opacity-70 grid place-items-center z-50">
       <dialog
         ref={dialogRef}
-        className="bg-gradient w-[90%] lg:w-[80%] max-w-[900px] h-[685px] border-none rounded-xl fixed z-[55] grid place-items-center"
+        className="bg-gradient w-[90%] lg:w-[80%] max-w-[900px] border-none rounded-xl fixed z-[55] grid place-items-center"
         onClose={onDismiss}
       >
         {children}

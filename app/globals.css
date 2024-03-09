@@ -39,6 +39,9 @@
 .hero-shadow {
   box-shadow: 0 0 9px #f3c23c;
 }
+.shadow-2 {
+  box-shadow: 0 0 15px #f3c23c;
+}
 .hover\:dark-shadow:hover {
   box-shadow: 0 0 18px #f3c23c;
 }
@@ -51,56 +54,6 @@
     rgb(29, 29, 29) 100%
   );
 }
-
-/* .play-btn {
-  animation: shadowPulse 1.3s infinite linear;
-}
-.play-btn::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: #fff solid 2px;
-  border-radius: 100%;
-  animation: ringPulse 1.3s infinite linear;
-}
-
-@keyframes ringPulse {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  80%,
-  100% {
-    opacity: 0;
-    transform: scale(1.6);
-  }
-}
-
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0 0 8px 6px transparent, 0 0 0 0 transparent,
-      0 0 0 0 transparent;
-  }
-
-  10% {
-    box-shadow: 0 0 8px 6px #f3c23c, 0 0 12px 10px transparent,
-      0 0 12px 5px #f3c23c;
-  }
-
-  80%,
-  100% {
-    box-shadow: 0 0 8px 6px transparent, 0 0 0 27px transparent,
-      0 0 0 27px transparent;
-  }
-} */
 
 .play-btn:before,
 .play-btn:after {

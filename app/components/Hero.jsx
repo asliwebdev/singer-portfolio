@@ -33,7 +33,7 @@ const Hero = () => {
               })}
             </ul>
             <Link
-              className="bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
+              className="shadow-2 bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
               href="/music"
             >
               Listen to my musics

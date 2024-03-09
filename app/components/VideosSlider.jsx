@@ -68,7 +68,7 @@ const VideosSlider = () => {
       </div>
       <div className="mt-8 w-full flex justify-end">
         <Link
-          className="flex gap-2 items-center bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
+          className="shadow-2 flex gap-2 items-center bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
           href="/videos"
         >
           watch more <IoIosArrowForward />
