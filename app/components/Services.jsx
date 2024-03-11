@@ -2,7 +2,7 @@ import Image from "next/image";
 import video_img from "../../public/video_img.JPG";
 import service_1 from "../../public/service-1.png";
 import service_2 from "../../public/service-2.png";
-import { damion } from "../lib/fonts";
+import { fjalla } from "../lib/fonts";
 import { FaPlay } from "react-icons/fa";
 import Link from "next/link";
 
@@ -24,7 +24,7 @@ const Services = () => {
         </Link>
       </div>
       <div className="flex-1 bg-gradient pt-6">
-        <h2 className={`text-brown text-center text-6xl ${damion.className}`}>
+        <h2 className={`text-brown text-center text-6xl ${fjalla.className}`}>
           Where do I sing!
         </h2>
         <div className="mt-6 flex flex-col items-center gap-3">

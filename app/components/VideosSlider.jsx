@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
+import { fjalla } from "../lib/fonts";
 
 const iframes = [
   "https://www.youtube.com/embed/9VlRFwMDbac?si=8c9Q0j2jGVcuJGag",
@@ -17,7 +18,9 @@ const VideosSlider = () => {
   };
   return (
     <div className="bg-gradient px-4 lg:px-36 py-6 lg:py-12">
-      <h2 className="text-brown text-5xl text-center">Featured Videos</h2>
+      <h2 className={`text-brown text-5xl text-center ${fjalla.className}`}>
+        Featured Videos
+      </h2>
       <div className="mt-6 lg:mt-20 carousel w-full">
         {iframes.map((iframe, index) => {
           let nextIndex, prevIndex;

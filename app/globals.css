@@ -42,6 +42,9 @@
 .shadow-2 {
   box-shadow: 0 0 15px #f3c23c;
 }
+.hover\:shadow-2:hover {
+  box-shadow: 0 0 15px #f3c23c;
+}
 .hover\:dark-shadow:hover {
   box-shadow: 0 0 18px #f3c23c;
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
+import { fjalla } from "../lib/fonts";
 
 const About = () => {
   return (
@@ -14,7 +15,11 @@ const About = () => {
           className="hero-shadow rounded-lg hover:dark-shadow transition-all duration-300 hover:scale-[1.03]"
         />
         <div className="flex flex-col gap-4">
-          <h2 className="text-brown text-5xl">About me</h2>
+          <h2
+            className={`text-brown text-5xl ${fjalla.className} max-lg:text-center`}
+          >
+            About me
+          </h2>
           <p className="mt-10 max-w-lg">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut
             tempora consectetur commodi ut eveniet, pariatur ab laborum

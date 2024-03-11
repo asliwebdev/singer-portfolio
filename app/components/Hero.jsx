@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { socialLinks } from "../lib";
 import Link from "next/link";
-import { damion, fjalla } from "../lib/fonts";
+import { fjalla } from "../lib/fonts";
 
 const Hero = () => {
   return (
@@ -46,7 +46,6 @@ const Hero = () => {
             alt="hero image"
             width={650}
             height={640}
-            // className="opacity-70"
             priority
           />
         </div>
