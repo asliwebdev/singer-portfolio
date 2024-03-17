@@ -57,6 +57,14 @@
     rgb(29, 29, 29) 100%
   );
 }
+.hover\:bg-gradient:hover {
+  background: linear-gradient(
+    95deg,
+    rgb(29, 29, 29) 0%,
+    rgb(29, 29, 29) 100%,
+    rgb(29, 29, 29) 100%
+  );
+}
 
 .play-btn:before,
 .play-btn:after {
@@ -80,4 +88,24 @@
     transform: scale(2);
     opacity: 0;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    95deg,
+    rgb(29, 29, 29) 0%,
+    rgb(29, 29, 29) 100%,
+    rgb(29, 29, 29) 100%
+  );
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f3c23c;
 }

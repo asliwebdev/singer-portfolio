@@ -50,3 +50,34 @@ export const socialLinks = [
     icon: <FaSpotify />,
   },
 ];
+
+export const videos = [
+  {
+    index: 1,
+    src: "https://www.youtube.com/embed/9VlRFwMDbac?modestbranding=0?si=8c9Q0j2jGVcuJGag",
+    title: "Asadbek Odilov - Ishonmay qo'ydim (audio 2023)",
+    channel: "NevoMusic",
+    thumbnail: "https://img.youtube.com/vi/9VlRFwMDbac/maxresdefault.jpg",
+  },
+  {
+    index: 2,
+    src: "https://www.youtube.com/embed/uNn_pXTpUck?si=hPjJva51x5-Qk4EY",
+    title: "Asadbek Odilov - Maftunam (audio 2024)",
+    channel: "NevoMusic",
+    thumbnail: "https://img.youtube.com/vi/uNn_pXTpUck/maxresdefault.jpg",
+  },
+  {
+    index: 3,
+    src: "https://www.youtube.com/embed/G8bZ4V52GB0?si=0FCduA1IzTEvsqyN",
+    title: "Asadbek Odilov - Yig'lasam (audio 2023)",
+    channel: "NevoMusic",
+    thumbnail: "https://img.youtube.com/vi/G8bZ4V52GB0/maxresdefault.jpg",
+  },
+  {
+    index: 4,
+    src: "https://www.youtube.com/embed/nCm_GU5pxvs?si=xTBIWPUVCHARsRqU",
+    title: "Asadbek Odiljonov - ONAM BO'LSAYDI",
+    channel: "Zo'rTv",
+    thumbnail: "https://img.youtube.com/vi/nCm_GU5pxvs/maxresdefault.jpg",
+  },
+];
