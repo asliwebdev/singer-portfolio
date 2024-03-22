@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { LiaTimesSolid } from "react-icons/lia";
-import { navLinks, socialLinks } from "../lib";
+import { navLinks } from "../lib";
 import { usePathname } from "next/navigation";
+import SocialLinks from "./SocialLinks";
 
 const SmallSidebar = ({ isSidebarOpen, toggle }) => {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ const SmallSidebar = ({ isSidebarOpen, toggle }) => {
         <Link href="/" className="text-[24.85px] text-brown" onClick={toggle}>
           Asadbek Odilov
         </Link>
-        <div className="flex flex-col justify-between h-[calc(100vh-60px)] overflow-y-auto">
+        <div className="flex flex-col justify-between h-[calc(100vh-60px)]">
           <div className="flex flex-1 flex-col gap-6 pt-16 h-full">
             {navLinks.map((link, index) => {
               return (
@@ -41,21 +42,7 @@ const SmallSidebar = ({ isSidebarOpen, toggle }) => {
               );
             })}
           </div>
-          <ul className="flex items-center justify-center gap-8 py-12 px-4">
-            {socialLinks.map((link) => {
-              return (
-                <li key={link.id}>
-                  <Link
-                    href={link.url}
-                    className="text-brown text-3xl hover:text-white transition-colors duration-300"
-                    target="_blank"
-                  >
-                    {link.icon}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <SocialLinks padding="py-12 px-4" />
         </div>
         <button
           type="button"

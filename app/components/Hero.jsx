@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { socialLinks } from "../lib";
 import Link from "next/link";
 import { fjalla } from "../lib/fonts";
+import SocialLinks from "./SocialLinks";
 
 const Hero = () => {
   return (
@@ -17,21 +17,7 @@ const Hero = () => {
             a professional singer captivating hearts throughout whole Uzbekistan
           </p>
           <div className="mt-12 mb-32 flex flex-col-reverse lg:flex-row gap-8">
-            <ul className="flex items-center justify-center gap-8">
-              {socialLinks.map((link) => {
-                return (
-                  <li key={link.id}>
-                    <Link
-                      href={link.url}
-                      className="text-brown text-3xl hover:text-white transition-colors duration-300"
-                      target="_blank"
-                    >
-                      {link.icon}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <SocialLinks />
             <Link
               className="shadow-2 bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
               href="/music"

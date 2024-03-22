@@ -7,13 +7,18 @@ const FormInput = ({ label, name, type }) => {
       {type === "textarea" ? (
         <textarea
           name={name}
-          className={`textarea bg-white placeholder:text-[#21202466]`}
+          className="textarea bg-white placeholder:text-[#21202466] text-black"
           placeholder="Xabaringizni qoldiring..."
           required
           rows="6"
         />
       ) : (
-        <input type={type} name={name} required className={`input bg-white`} />
+        <input
+          type={type}
+          name={name}
+          required
+          className="input bg-white text-black"
+        />
       )}
     </div>
   );
