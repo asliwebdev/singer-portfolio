@@ -80,4 +80,24 @@ export const videos = [
     channel: "Zo'rTv",
     thumbnail: "https://img.youtube.com/vi/nCm_GU5pxvs/maxresdefault.jpg",
   },
+  {
+    index: 5,
+    src: "https://www.youtube.com/embed/3JtRJ6fsyBY?si=qsi1Lq-iWf7pwAbn",
+    title:
+      "Elyor Meliboyev feat Asadbek Odilov - Giybatchilar xormanglar jonli ijro",
+    channel: "OBUNA BO'LING",
+    thumbnail: "https://img.youtube.com/vi/3JtRJ6fsyBY/maxresdefault.jpg",
+  },
+];
+
+export const musics = [
+  {
+    id: 1,
+    src: "..",
+    singer: "Asadbek Odilov",
+    title: "Ishonmay Qo'ydim",
+    duration: "3:12",
+    released: "2023",
+    img: "https://img.youtube.com/vi/9VlRFwMDbac/maxresdefault.jpg",
+  },
 ];

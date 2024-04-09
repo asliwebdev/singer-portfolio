@@ -109,3 +109,7 @@
 ::-webkit-scrollbar-thumb {
   background: #f3c23c;
 }
+
+.poster-bg {
+  background: linear-gradient(to right, rgb(99, 99, 99), rgb(162, 171, 88));
+}
