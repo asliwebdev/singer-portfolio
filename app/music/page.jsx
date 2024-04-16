@@ -1,3 +1,4 @@
+import LoginSpotify from "../components/LoginSpotify";
 import { fjalla } from "../lib/fonts";
 
 const Music = () => {
@@ -8,6 +9,7 @@ const Music = () => {
       >
         Music
       </h2>
+      <LoginSpotify />
       <iframe
         src="https://open.spotify.com/embed/artist/7uqisBAuFsJFShQECrcQDX?utm_source=generator&theme=0"
         width="100%"
