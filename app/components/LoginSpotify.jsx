@@ -22,7 +22,7 @@ const LoginSpotify = () => {
     setToken(token);
   }, []);
   const CLIENT_ID = "7cdd30258fc24ec592855cf8ca61eeb6";
-  const REDIRECT_URI = "http://localhost:3000";
+  const REDIRECT_URI = "https://asadbek-ten.vercel.app/music";
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
   const RESPONSE_TYPE = "token";
 
