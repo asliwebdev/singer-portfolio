@@ -51,3 +51,42 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
           </p>
         </div>
       </div>
+
+                // const togglePlayPause = (audioSrc) => {
+
+// if (!audioSrc) {
+// if (audio) {
+// if (!isPlaying) {
+// setIsPlaying(true);
+// audio.play();
+// } else {
+// setIsPlaying(false);
+// audio.pause();
+// }
+// } else {
+// setActiveMusic(musics[0].src);
+// setIsPlaying(true);
+// audio?.play();
+// }
+// } else {
+// if (!activeMusic) {
+// setActiveMusic(audioSrc);
+// setIsPlaying(true);
+// audio.play();
+// } else {
+// if (activeMusic === audioSrc) {
+// if (isPlaying) {
+// setIsPlaying(false);
+// audio.pause();
+// } else {
+// setIsPlaying(true);
+// audio.play();
+// }
+// } else {
+// setActiveMusic(audioSrc);
+// setIsPlaying(true);
+// audio.play();
+// }
+// }
+// }
+// };

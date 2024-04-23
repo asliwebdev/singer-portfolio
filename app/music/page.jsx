@@ -1,4 +1,4 @@
-import LoginSpotify from "../components/LoginSpotify";
+import MusicsContainer from "../components/MusicsContainer";
 import { fjalla } from "../lib/fonts";
 
 const Music = () => {
@@ -9,15 +9,7 @@ const Music = () => {
       >
         Music
       </h2>
-      <LoginSpotify />
-      <iframe
-        src="https://open.spotify.com/embed/artist/7uqisBAuFsJFShQECrcQDX?utm_source=generator&theme=0"
-        width="100%"
-        height="352"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        className="mt-8"
-      ></iframe>
+      <MusicsContainer />
     </div>
   );
 };

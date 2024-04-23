@@ -113,3 +113,7 @@
 .poster-bg {
   background: linear-gradient(to right, rgb(99, 99, 99), rgb(162, 171, 88));
 }
+
+.scrollbar-color {
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}

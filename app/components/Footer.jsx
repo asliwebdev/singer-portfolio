@@ -81,8 +81,8 @@ const Footer = () => {
       <div className="border-t border-brown flex items-center justify-center w-full py-10">
         <p className="text-center">
           © {new Date().getFullYear()}{" "}
-          <span className="text-brown text-lg mr-2">Asadbek Odilov.</span>Barcha huquqlar
-          himoyalangan!
+          <span className="text-brown text-lg mr-2">Asadbek Odilov.</span>Barcha
+          huquqlar himoyalangan!
         </p>
       </div>
     </div>

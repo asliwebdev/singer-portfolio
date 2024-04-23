@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "img.youtube.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+        port: "",
+      },
     ],
   },
 };
