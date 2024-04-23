@@ -4,9 +4,9 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
 const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  space: "hta8ho37q8fa",
   environment: "master",
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  accessToken: "XnwzSuf1QE_Ie5YXz0Ibd1KuJSlVXpNnphHtp8HF6aw",
 });
 
 export const useFetchMusics = () => {
