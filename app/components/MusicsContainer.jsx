@@ -116,17 +116,17 @@ const MusicsContainer = () => {
   return (
     <>
       {/* HEADER */}
-      <div className="mt-8 bg-[#282828] p-6 rounded-t-xl flex gap-3 lg:gap-6 relative">
+      <div className="mt-8 bg-[#282828] p-4 lg:p-6 rounded-t-xl flex gap-3 lg:gap-6 relative min-h-[200px] max-sm:min-h-[220px]">
         <Image
           src="https://i.scdn.co/image/ab67616d00001e0251175b0dbe8af583e94137fe"
           alt="poster image"
           width={152}
           height={152}
           priority
-          className="rounded-xl"
+          className="rounded-xl max-sm:w-[112px] max-sm:h-[112px] image-transition img-shadow"
         />
         <div className="flex flex-col w-full">
-          <div className="flex justify-end">
+          <div className="flex justify-end max-sm:mb-1">
             <Link
               href="https://open.spotify.com/artist/7uqisBAuFsJFShQECrcQDX"
               target="_blank"
@@ -136,12 +136,23 @@ const MusicsContainer = () => {
             </Link>
           </div>
           <div className="flex flex-col gap-y-0.5">
-            <h2 className="text-white text-2xl font-bold">Asadbek Odilov</h2>
-            <span className="text-[#b1b1b1] font-medium text-base">
+            <h2 className="text-white text-xl sm:text-2xl font-bold">
+              Asadbek Odilov
+            </h2>
+            <span className="text-[#b1b1b1] font-medium text-[0.875rem] lg:text-base">
               Top Tracks
             </span>
+            <div className="pt-2">
+              <Link
+                href="https://www.instagram.com/asadbekodilov1"
+                target="_blank"
+                className="border border-[hsl(0,0%,33%)] rounded-[4px] ps-4 pe-4 font-bold text-[0.8125rem] py-1 hover:text-[0.9rem] transition-all duration-300"
+              >
+                Follow
+              </Link>
+            </div>
           </div>
-          <div>
+          <div className="max-sm:absolute max-sm:left-0 max-sm:w-full max-sm:bottom-6 max-sm:px-4">
             <AudioProgress
               isPlaying={isPlaying}
               audio={audio}
@@ -152,6 +163,7 @@ const MusicsContainer = () => {
           </div>
         </div>
       </div>
+      {/* MUSIC */}
       {loading ? (
         <div className="bg-[#242424] h-[200px] rounded-b-xl relative">
           <Loading />

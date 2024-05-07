@@ -117,3 +117,12 @@
 .scrollbar-color {
   scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
 }
+
+.image-transition {
+  transition: transform 0.4s, opacity 0.4s, visibility 0.4s, border-radius 0.4s,
+    width 0.4s, height 0.4s, margin 0.4s, -webkit-transform 0.4s;
+}
+
+.img-shadow {
+  box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.1), 0 0 29px 0 rgba(0, 0, 0, 0.1);
+}
