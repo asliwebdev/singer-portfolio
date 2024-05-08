@@ -1,11 +1,15 @@
-import { videos } from "../lib";
+import { fetchGraphQL } from "../lib/data";
 import { fjalla } from "../lib/fonts";
 import VideosList from "./VideosList";
+
+const videosList = await fetchGraphQL(
+  "query {asadbeksVideosCollection {items {title,src,channel, thumbnail, index}}}"
+);
 
 const Videos = ({ searchParams }) => {
   const activeIndex = Number(searchParams.index?.toString()) || 1;
   const autoplay = Number(Boolean(searchParams.autoplay));
-  const activeVideo = videos.find((video) => video.index === activeIndex);
+  const activeVideo = videosList?.find((video) => video.index === activeIndex);
 
   return (
     <div className="px-4 lg:px-16 py-6 lg:py-12">

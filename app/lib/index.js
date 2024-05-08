@@ -89,15 +89,3 @@ export const videos = [
     thumbnail: "https://img.youtube.com/vi/3JtRJ6fsyBY/maxresdefault.jpg",
   },
 ];
-
-export const musics = [
-  {
-    id: 1,
-    src: "..",
-    singer: "Asadbek Odilov",
-    title: "Ishonmay Qo'ydim",
-    duration: "3:12",
-    released: "2023",
-    img: "https://img.youtube.com/vi/9VlRFwMDbac/maxresdefault.jpg",
-  },
-];
