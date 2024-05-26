@@ -1,6 +1,10 @@
 import MusicsContainer from "../components/MusicsContainer";
 import { fjalla } from "../lib/fonts";
 
+export const metadata = {
+  title: "Musics",
+};
+
 const Music = () => {
   return (
     <div className="px-4 lg:px-16 py-6 lg:py-12">

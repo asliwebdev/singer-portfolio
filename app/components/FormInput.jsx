@@ -1,4 +1,4 @@
-const FormInput = ({ label, name, type }) => {
+const FormInput = ({ label, name, type, inputRef }) => {
   return (
     <div className="form-control mb-4">
       <label className="label">
@@ -11,6 +11,7 @@ const FormInput = ({ label, name, type }) => {
           placeholder="Xabaringizni qoldiring..."
           required
           rows="6"
+          ref={inputRef}
         />
       ) : (
         <input
@@ -18,6 +19,7 @@ const FormInput = ({ label, name, type }) => {
           name={name}
           required
           className="input bg-white text-black"
+          ref={inputRef}
         />
       )}
     </div>

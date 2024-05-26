@@ -4,6 +4,10 @@ import { FaPhone } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import { fjalla } from "../lib/fonts";
 
+export const metadata = {
+  title: "Contact",
+};
+
 const Contact = () => {
   return (
     <div className="px-4 pt-16 pb-12 lg:px-16 lg:py-28 grid lg:grid-cols-2 gap-8 lg:gap-20">

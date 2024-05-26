@@ -2,6 +2,10 @@ import { fetchGraphQL } from "../lib/data";
 import { fjalla } from "../lib/fonts";
 import VideosList from "./VideosList";
 
+export const metadata = {
+  title: "Videos",
+};
+
 const videosList = await fetchGraphQL(
   "query {asadbeksVideosCollection {items {title,src,channel, thumbnail, index}}}"
 );

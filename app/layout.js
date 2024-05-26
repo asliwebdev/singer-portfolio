@@ -6,8 +6,11 @@ import { Footer } from "./components";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Asadbek Odilov",
-  description: "Uzbek professional singer",
+  title: {
+    template: "%s | Asadbek Odilov",
+    default: "Asadbek Odilov",
+  },
+  description: "Asadbek Odilov, Uzbek professional singer.",
 };
 
 export default function RootLayout({ children, modal }) {
