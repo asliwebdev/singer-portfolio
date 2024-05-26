@@ -2,10 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-export const metadata = {
-  title: "Services",
-};
-
 const page = () => {
   const videoRef = useRef();
 
