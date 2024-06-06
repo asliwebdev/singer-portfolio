@@ -19,10 +19,10 @@ export const useFetchMusics = () => {
         content_type: "asadbeksMusics",
       });
       const musics = response.items.map((item) => {
-        const { artist, duration, title, audio } = item.fields;
+        const { artist, duration, title, audio, image } = item.fields;
         const src = audio.fields.file.url;
         const { id } = item.sys;
-        return { artist, duration, title, src, id };
+        return { artist, duration, title, src, id, image };
       });
       setMusics(musics);
       setLoading(false);

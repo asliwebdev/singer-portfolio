@@ -16,6 +16,9 @@ module.exports = {
         clampH1: "clamp(2.25rem, 5vw, 4.5rem)",
         clampH2: "clamp(1.5rem, 6vw, 3rem)",
       },
+      gridTemplateColumns: {
+        "auto-fill-minmax": "repeat(auto-fill, minmax(250px, 335px))",
+      },
     },
   },
   daisyui: {

@@ -41,7 +41,9 @@ const AudioProgress = ({
   const seekAudio = (e) => {
     const width = e.target.clientWidth;
     const offsetX = e.nativeEvent.offsetX;
-    audio.currentTime = (offsetX / width) * audio.duration;
+    if (audio) {
+      audio.currentTime = (offsetX / width) * audio.duration;
+    }
   };
 
   return (
