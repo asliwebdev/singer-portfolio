@@ -17,7 +17,9 @@
   height: 0.1em;
   background-color: black;
   opacity: 0;
-  transition: opacity 300ms, transform 300ms;
+  transition:
+    opacity 300ms,
+    transform 300ms;
 }
 
 .nav-links a:hover::after {
@@ -119,10 +121,68 @@
 }
 
 .image-transition {
-  transition: transform 0.4s, opacity 0.4s, visibility 0.4s, border-radius 0.4s,
-    width 0.4s, height 0.4s, margin 0.4s, -webkit-transform 0.4s;
+  transition:
+    transform 0.4s,
+    opacity 0.4s,
+    visibility 0.4s,
+    border-radius 0.4s,
+    width 0.4s,
+    height 0.4s,
+    margin 0.4s,
+    -webkit-transform 0.4s;
 }
 
 .img-shadow {
-  box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.1), 0 0 29px 0 rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 9px 9px 0 rgba(0, 0, 0, 0.1),
+    0 0 29px 0 rgba(0, 0, 0, 0.1);
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Removes default WebKit styling */
+  appearance: none;
+  width: 500px; /* Custom width */
+  height: 0.25rem;
+  border-radius: 2px;
+  background: #4d4d4d;
+}
+
+#volume-range {
+  width: 100px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #4d4d4d;
+  height: 0.25rem;
+  border-radius: 2px;
+  width: 300px;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: #4d4d4d;
+  height: 0.25rem;
+  border-radius: 2px;
+  width: 300px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Removes default WebKit styling */
+  appearance: none;
+  background: #fff;
+  height: 8px;
+  border-radius: 50%;
+  width: 8px;
+  margin-top: -1.5px;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none; /* Removes default WebKit styling */
+  appearance: none;
+  background: #fff;
+  height: 8px;
+  border-radius: 50%;
+  width: 8px;
+  margin-top: -1.5px;
 }

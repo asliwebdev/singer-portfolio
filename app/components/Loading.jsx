@@ -1,5 +1,4 @@
 const Loading = ({ height }) => {
-  console.log(height);
   return (
     <div
       className={`flex items-center justify-center ${height ? height : "h-full"}`}
