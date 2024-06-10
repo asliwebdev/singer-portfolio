@@ -6,6 +6,7 @@ import { useFetchMusics } from "../hooks/useFetchMusics";
 import Loading from "./Loading";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
+import { GiPauseButton } from "react-icons/gi";
 import { MdForward } from "react-icons/md";
 import LatestTracksPlayer from "./LatestTracksPlayer";
 import { useState } from "react";
@@ -17,7 +18,17 @@ const LatestTracks = () => {
     return { title, artist, src, image, id };
   });
 
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = (index) => {
+    if (currentTrackIndex === index) {
+      setIsPlaying((prev) => !prev);
+    } else {
+      setCurrentTrackIndex(index);
+      setIsPlaying(true);
+    }
+  };
 
   return (
     <div className="px-4 py-8 lg:px-36 lg:py-12">
@@ -45,7 +56,6 @@ const LatestTracks = () => {
                 <div
                   key={id}
                   className="group rounded-md bg-transparent p-2 transition-all duration-200 hover:bg-[#242424]"
-                  onClick={() => setCurrentTrackIndex(index)}
                 >
                   <div className="relative">
                     <Image
@@ -55,12 +65,19 @@ const LatestTracks = () => {
                       height={300}
                       className="rounded-md"
                     />
-                    <div className="absolute bottom-0 right-2 z-[1] flex h-12 w-12 shrink-0 items-center justify-center self-end transition-all duration-300 group-hover:bottom-2">
+                    <div
+                      className={`absolute ${isPlaying && currentTrackIndex === index ? "bottom-2" : "bottom-0"} right-2 z-[1] flex h-12 w-12 shrink-0 items-center justify-center self-end transition-all duration-300 group-hover:bottom-2`}
+                    >
                       <button
                         type="button"
-                        className="flex h-full w-full items-center justify-center rounded-full bg-brown text-lg text-black opacity-0 transition-all duration-300 hover:scale-110 group-hover:opacity-100"
+                        className={`${isPlaying && currentTrackIndex === index ? "opacity-100" : "opacity-0"} flex h-full w-full items-center justify-center rounded-full bg-brown text-lg text-black transition-all duration-300 hover:scale-110 group-hover:opacity-100`}
+                        onClick={() => handlePlayPause(index)}
                       >
-                        <FaPlay />
+                        {isPlaying && currentTrackIndex === index ? (
+                          <GiPauseButton className="text-xl" />
+                        ) : (
+                          <FaPlay />
+                        )}
                       </button>
                     </div>
                   </div>
@@ -72,11 +89,16 @@ const LatestTracks = () => {
               );
             })}
           </div>
-          <LatestTracksPlayer
-            playlist={latestTracks}
-            currentTrackIndex={currentTrackIndex}
-            setCurrentTrackIndex={setCurrentTrackIndex}
-          />
+          {currentTrackIndex !== null && (
+            <LatestTracksPlayer
+              playlist={latestTracks}
+              currentTrackIndex={currentTrackIndex}
+              setCurrentTrackIndex={setCurrentTrackIndex}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              handlePlayPause={handlePlayPause}
+            />
+          )}
         </>
       )}
       <Link

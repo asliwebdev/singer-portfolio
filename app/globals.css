@@ -141,7 +141,7 @@
 input[type="range"] {
   -webkit-appearance: none; /* Removes default WebKit styling */
   appearance: none;
-  width: 500px; /* Custom width */
+  width: 30vw; /* Custom width */
   height: 0.25rem;
   border-radius: 2px;
   background: #4d4d4d;
