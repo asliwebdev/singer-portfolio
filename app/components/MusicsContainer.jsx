@@ -43,6 +43,7 @@ const MusicsContainer = () => {
     }
   };
 
+  // TO PLAY AND PAUSE THE MUSIC BASED ON THE STATE CONDITIONS
   useEffect(() => {
     if (activeMusic && audio) {
       if (isPlaying) {
@@ -53,28 +54,19 @@ const MusicsContainer = () => {
     }
   }, [activeMusic, isPlaying]);
 
+  // TO MAKE SURE THAT AFTER THE ENDING OF THE MUSIC NEXT WILL BE PLAYED
+  // AND WHENEVER COMPONENT UNMOUNTS(NAVIGATES TO ANOTHER PAGE) AUDIO WILL BE STOPPED
   useEffect(() => {
     if (audio) {
-      const handleEnded = () => {
-        setIsPlaying(false);
-        const currentIndex = musics.findIndex(
-          (music) => music.src === activeMusic
-        );
-        if (currentIndex < musics.length - 1) {
-          const nextMusic = musics[currentIndex + 1];
-          setActiveMusic(nextMusic.src);
-          setIsPlaying(true);
-          setAudio(new Audio(nextMusic.src));
-        } else {
-          setActiveMusic(musics[0].src);
-          setIsPlaying(true);
-          setAudio(new Audio(musics[0].src));
-        }
-      };
-
-      audio.addEventListener("ended", handleEnded);
+      audio.addEventListener("ended", playNextTrack);
       return () => {
-        audio.removeEventListener("ended", handleEnded);
+        audio.removeEventListener("ended", playNextTrack);
+        if (audio || isPlaying) {
+          audio.pause();
+          audio.currentTime = 0; // Reset playback position
+          audio.src = ""; // Remove the audio source
+          audio.load(); // Reload the audio element
+        }
       };
     }
   }, [audio]);
@@ -83,142 +75,52 @@ const MusicsContainer = () => {
     const currentIndex = musics.findIndex((music) => music.src === activeMusic);
     setIsPlaying(false);
     audio?.pause();
-    if (currentIndex > 0) {
-      const previousMusic = musics[currentIndex - 1];
-      setActiveMusic(previousMusic.src);
-      setIsPlaying(true);
-      setAudio(new Audio(previousMusic.src));
-    } else {
-      const previousMusic = musics[musics.length - 1];
-      setActiveMusic(previousMusic.src);
-      setIsPlaying(true);
-      setAudio(new Audio(previousMusic.src));
-    }
+    const previousMusic =
+      musics[(currentIndex - 1 + musics?.length) % musics?.length];
+    setActiveMusic(previousMusic.src);
+    setIsPlaying(true);
+    setAudio(new Audio(previousMusic.src));
   };
 
   const playNextTrack = () => {
     const currentIndex = musics.findIndex((music) => music.src === activeMusic);
     setIsPlaying(false);
     audio?.pause();
-    if (currentIndex < musics.length - 1) {
-      const nextMusic = musics[currentIndex + 1];
-      setActiveMusic(nextMusic.src);
-      setIsPlaying(true);
-      setAudio(new Audio(nextMusic.src));
-    } else {
-      const nextMusic = musics[0];
-      setActiveMusic(nextMusic.src);
-      setIsPlaying(true);
-      setAudio(new Audio(nextMusic.src));
-    }
+    const nextMusic = musics[(currentIndex + 1) % musics?.length];
+    setActiveMusic(nextMusic.src);
+    setIsPlaying(true);
+    setAudio(new Audio(nextMusic.src));
   };
 
   return (
     <>
       {/* HEADER */}
-      <div className="mt-8 bg-[#282828] p-4 lg:p-6 rounded-t-xl flex gap-3 lg:gap-6 relative min-h-[200px] max-sm:min-h-[220px]">
-        <Image
-          src="https://i.scdn.co/image/ab67616d00001e0251175b0dbe8af583e94137fe"
-          alt="poster image"
-          width={152}
-          height={152}
-          priority
-          className="rounded-xl max-sm:w-[112px] max-sm:h-[112px] image-transition img-shadow"
-        />
-        <div className="flex flex-col w-full">
-          <div className="flex justify-end max-sm:mb-1">
-            <Link
-              href="https://open.spotify.com/artist/7uqisBAuFsJFShQECrcQDX"
-              target="_blank"
-              className="text-2xl"
-            >
-              <FaSpotify />
-            </Link>
-          </div>
-          <div className="flex flex-col gap-y-0.5">
-            <h2 className="text-white text-xl sm:text-2xl font-bold">
-              Asadbek Odilov
-            </h2>
-            <span className="text-[#b1b1b1] font-medium text-[0.875rem] lg:text-base">
-              Top Tracks
-            </span>
-            <div className="pt-2">
-              <Link
-                href="https://www.instagram.com/asadbekodilov1"
-                target="_blank"
-                className="border border-[hsl(0,0%,33%)] rounded-[4px] ps-4 pe-4 font-bold text-[0.8125rem] py-1 hover:text-[0.9rem] transition-all duration-300"
-              >
-                Follow
-              </Link>
-            </div>
-          </div>
-          <div className="max-sm:absolute max-sm:left-0 max-sm:w-full max-sm:bottom-6 max-sm:px-4">
-            <AudioProgress
-              isPlaying={isPlaying}
-              audio={audio}
-              togglePlayPause={togglePlayPause}
-              playPreviousTrack={playPreviousTrack}
-              playNextTrack={playNextTrack}
-            />
-          </div>
-        </div>
-      </div>
+      <Header
+        isPlaying={isPlaying}
+        audio={audio}
+        togglePlayPause={togglePlayPause}
+        playNextTrack={playNextTrack}
+        playPreviousTrack={playPreviousTrack}
+      />
       {/* MUSIC */}
       {loading ? (
-        <div className="bg-[#242424] h-[200px] rounded-b-xl relative">
+        <div className="relative h-[200px] rounded-b-xl bg-[#242424]">
           <Loading />
         </div>
       ) : (
-        <div className="bg-[#242424] h-full rounded-b-xl">
-          <div className="p-2 h-full overflow-y-auto scrollbar-color ps-2 me-2">
-            <ol className="ms-0 me-2 ps-0 pe-0">
-              {musics.map((music, index) => {
-                const { artist, duration, title, src, id } = music;
-                return (
-                  <li
-                    key={id}
-                    className={`grid grid-cols-[auto,1fr,auto] py-2 hover:bg-[#1d1d1d] rounded group ${
-                      activeMusic === src && "bg-[#1d1d1d]"
-                    }`}
-                  >
-                    <div className="flex items-center justify-center w-8">
-                      <span
-                        className={`${
-                          activeMusic === src && "hidden"
-                        } group-hover:hidden`}
-                      >
-                        {index + 1}
-                      </span>
-                      <button
-                        type="button"
-                        className={`${
-                          activeMusic !== src && "hidden"
-                        } group-hover:block opacity-60`}
-                        onClick={() => toggleActiveMusic(src)}
-                      >
-                        {activeMusic === src && isPlaying ? (
-                          <FaPause className="text-brown text-xl" />
-                        ) : (
-                          <FaPlay />
-                        )}
-                      </button>
-                    </div>
-                    <div>
-                      <h3
-                        className={`text-[14px] font-medium ${
-                          activeMusic === src && "text-brown"
-                        }`}
-                      >
-                        {title}
-                      </h3>
-                      <h4 className="text-[11px] opacity-60">{artist}</h4>
-                    </div>
-                    <div className="flex items-center justify-center w-14">
-                      <span className="text-[14px] opacity-60">{duration}</span>
-                    </div>
-                  </li>
-                );
-              })}
+        <div className="h-full rounded-b-xl bg-[#242424]">
+          <div className="scrollbar-color me-2 h-full overflow-y-auto p-2 ps-2">
+            <ol className="me-2 ms-0 pe-0 ps-0">
+              {musics.map((music, index) => (
+                <MusicItem
+                  key={music.id}
+                  music={music}
+                  isPlaying={isPlaying}
+                  index={index}
+                  activeMusic={activeMusic}
+                  toggleActiveMusic={toggleActiveMusic}
+                />
+              ))}
             </ol>
           </div>
         </div>
@@ -228,3 +130,112 @@ const MusicsContainer = () => {
 };
 
 export default MusicsContainer;
+
+function MusicItem({
+  activeMusic,
+  index,
+  toggleActiveMusic,
+  isPlaying,
+  music,
+}) {
+  const { artist, duration, title, src } = music;
+  return (
+    <li
+      className={`group grid grid-cols-[auto,1fr,auto] rounded py-2 hover:bg-[#1d1d1d] ${
+        activeMusic === src && "bg-[#1d1d1d]"
+      }`}
+    >
+      <div className="flex w-8 items-center justify-center">
+        <span
+          className={`${activeMusic === src && "hidden"} group-hover:hidden`}
+        >
+          {index + 1}
+        </span>
+        <button
+          type="button"
+          className={`${
+            activeMusic !== src && "hidden"
+          } opacity-60 group-hover:block`}
+          onClick={() => toggleActiveMusic(src)}
+        >
+          {activeMusic === src && isPlaying ? (
+            <FaPause className="text-xl text-brown" />
+          ) : (
+            <FaPlay />
+          )}
+        </button>
+      </div>
+      <div>
+        <h3
+          className={`text-[14px] font-medium ${
+            activeMusic === src && "text-brown"
+          }`}
+        >
+          {title}
+        </h3>
+        <h4 className="text-[11px] opacity-60">{artist}</h4>
+      </div>
+      <div className="flex w-14 items-center justify-center">
+        <span className="text-[14px] opacity-60">{duration}</span>
+      </div>
+    </li>
+  );
+}
+
+function Header({
+  isPlaying,
+  audio,
+  togglePlayPause,
+  playPreviousTrack,
+  playNextTrack,
+}) {
+  return (
+    <div className="relative mt-8 flex min-h-[200px] gap-3 rounded-t-xl bg-[#282828] p-4 max-sm:min-h-[220px] lg:gap-6 lg:p-6">
+      <Image
+        src="https://i.scdn.co/image/ab67616d00001e0251175b0dbe8af583e94137fe"
+        alt="poster image"
+        width={152}
+        height={152}
+        priority
+        className="image-transition img-shadow rounded-xl max-sm:h-[112px] max-sm:w-[112px]"
+      />
+      <div className="flex w-full flex-col">
+        <div className="flex justify-end max-sm:mb-1">
+          <Link
+            href="https://open.spotify.com/artist/7uqisBAuFsJFShQECrcQDX"
+            target="_blank"
+            className="text-2xl"
+          >
+            <FaSpotify />
+          </Link>
+        </div>
+        <div className="flex flex-col gap-y-0.5">
+          <h2 className="text-xl font-bold text-white sm:text-2xl">
+            Asadbek Odilov
+          </h2>
+          <span className="text-[0.875rem] font-medium text-[#b1b1b1] lg:text-base">
+            Top Tracks
+          </span>
+          <div className="pt-2">
+            <Link
+              href="https://www.instagram.com/asadbekodilov1"
+              target="_blank"
+              className="rounded-[4px] border border-[hsl(0,0%,33%)] py-1 pe-4 ps-4 text-[0.8125rem] font-bold transition-all duration-300 hover:text-[0.9rem]"
+            >
+              Follow
+            </Link>
+          </div>
+        </div>
+        <div className="max-sm:absolute max-sm:bottom-6 max-sm:left-0 max-sm:w-full max-sm:px-4">
+          <AudioProgress
+            isPlaying={isPlaying}
+            audio={audio}
+            togglePlayPause={togglePlayPause}
+            playPreviousTrack={playPreviousTrack}
+            playNextTrack={playNextTrack}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

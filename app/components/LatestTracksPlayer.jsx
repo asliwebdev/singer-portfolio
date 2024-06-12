@@ -5,7 +5,7 @@ import useSound from "use-sound";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 import { FaForwardStep, FaBackwardStep } from "react-icons/fa6";
-import { GiPauseButton, GiSurroundedEye } from "react-icons/gi";
+import { GiPauseButton } from "react-icons/gi";
 import { formatTime } from "./../lib/utils";
 
 const LatestTracksPlayer = ({
@@ -20,19 +20,32 @@ const LatestTracksPlayer = ({
   const [seekTime, setSeekTime] = useState(0);
 
   const { src, image, title, artist } = playlist?.[currentTrackIndex];
+  const [prevSrc, setPrevSrc] = useState(null);
 
   const [play, { pause, sound, duration }] = useSound(src, {
     volume,
     onend: handleNext,
   });
 
+  // TO MAKE SURE THAT WHENEVER ANOTHER MUSIC CLICKS PREVIOUS WILL BE STOPPED !!!
+  useEffect(() => {
+    if (prevSrc !== src) {
+      if (sound) {
+        sound.stop();
+        sound.unload();
+      }
+      setPrevSrc(src);
+    }
+  }, [src]);
+
+  // TO PLAY AND PAUSE MUSIC WHENEVER CONDITIONS CHANGE
   useEffect(() => {
     if (isPlaying) {
       play();
     } else {
       pause();
     }
-  }, [isPlaying, currentTrackIndex, play, pause]);
+  }, [isPlaying, currentTrackIndex, play, pause, sound]);
 
   sound?.on("end", function () {
     if (sound) {
@@ -61,6 +74,7 @@ const LatestTracksPlayer = ({
     setIsPlaying(true);
   }
 
+  // TO UPDATE THE SEEK TIME ON EVERY SECOND
   useEffect(() => {
     const interval = setInterval(() => {
       if (sound) {
@@ -86,6 +100,16 @@ const LatestTracksPlayer = ({
       sound.seek(newSeekTime);
     }
   };
+
+  // TO MAKE SURE WHEN THE COMPOUND UNMOUNTED(NAVIGATES TO THE ANOTHER PAGE) THE SOUND WILL BE STOPPED
+  useEffect(() => {
+    return () => {
+      if (sound) {
+        sound.stop();
+        sound.unload();
+      }
+    };
+  }, [sound]);
 
   return (
     <div
@@ -117,7 +141,7 @@ const LatestTracksPlayer = ({
             {!isPlaying ? (
               <FaPlay className="translate-x-[5%]" />
             ) : (
-              <GiPauseButton className="translate-x-[5%]" />
+              <GiPauseButton />
             )}
           </button>
           <button type="button" onClick={handleNext}>

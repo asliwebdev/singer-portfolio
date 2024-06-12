@@ -50,44 +50,16 @@ const LatestTracks = () => {
       ) : (
         <>
           <div className="mt-20 grid grid-cols-auto-fill-minmax justify-center gap-[2rem_2rem] lg:gap-x-[3rem] xl:gap-x-16">
-            {latestTracks.map((track, index) => {
-              const { title, artist, id, image } = track;
-              return (
-                <div
-                  key={id}
-                  className="group rounded-md bg-transparent p-2 transition-all duration-200 hover:bg-[#242424]"
-                >
-                  <div className="relative">
-                    <Image
-                      src={image}
-                      alt="music poster image"
-                      width={330}
-                      height={300}
-                      className="rounded-md"
-                    />
-                    <div
-                      className={`absolute ${isPlaying && currentTrackIndex === index ? "bottom-2" : "bottom-0"} right-2 z-[1] flex h-12 w-12 shrink-0 items-center justify-center self-end transition-all duration-300 group-hover:bottom-2`}
-                    >
-                      <button
-                        type="button"
-                        className={`${isPlaying && currentTrackIndex === index ? "opacity-100" : "opacity-0"} flex h-full w-full items-center justify-center rounded-full bg-brown text-lg text-black transition-all duration-300 hover:scale-110 group-hover:opacity-100`}
-                        onClick={() => handlePlayPause(index)}
-                      >
-                        {isPlaying && currentTrackIndex === index ? (
-                          <GiPauseButton className="text-xl" />
-                        ) : (
-                          <FaPlay />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="pt-2">
-                    <h6>{title}</h6>
-                    <p className="font-medium text-[#8c8c8c]">{artist}</p>
-                  </div>
-                </div>
-              );
-            })}
+            {latestTracks.map((track, index) => (
+              <TrackItem
+                key={track.id}
+                track={track}
+                index={index}
+                isPlaying={isPlaying}
+                handlePlayPause={handlePlayPause}
+                currentTrackIndex={currentTrackIndex}
+              />
+            ))}
           </div>
           {currentTrackIndex !== null && (
             <LatestTracksPlayer
@@ -113,3 +85,46 @@ const LatestTracks = () => {
 };
 
 export default LatestTracks;
+
+function TrackItem({
+  track,
+  isPlaying,
+  currentTrackIndex,
+  index,
+  handlePlayPause,
+}) {
+  const { title, artist, image } = track;
+  return (
+    <div className="group rounded-md bg-transparent p-2 transition-all duration-200 hover:bg-[#242424]">
+      <div className="relative">
+        <Image
+          src={image}
+          alt="music poster image"
+          width={330}
+          height={300}
+          className="rounded-md"
+          priority={true}
+        />
+        <div
+          className={`absolute ${isPlaying && currentTrackIndex === index ? "bottom-2" : "bottom-0"} right-2 z-[1] flex h-12 w-12 shrink-0 items-center justify-center self-end transition-all duration-300 group-hover:bottom-2`}
+        >
+          <button
+            type="button"
+            className={`${isPlaying && currentTrackIndex === index ? "opacity-100" : "opacity-0"} flex h-full w-full items-center justify-center rounded-full bg-brown text-lg text-black transition-all duration-300 hover:scale-110 group-hover:opacity-100`}
+            onClick={() => handlePlayPause(index)}
+          >
+            {isPlaying && currentTrackIndex === index ? (
+              <GiPauseButton className="text-xl" />
+            ) : (
+              <FaPlay />
+            )}
+          </button>
+        </div>
+      </div>
+      <div className="pt-2">
+        <h6>{title}</h6>
+        <p className="font-medium text-[#8c8c8c]">{artist}</p>
+      </div>
+    </div>
+  );
+}

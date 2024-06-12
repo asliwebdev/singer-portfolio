@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
 import { FaForwardStep, FaBackwardStep, FaPause } from "react-icons/fa6";
+import { formatTime } from "../lib/utils";
 
 const AudioProgress = ({
   isPlaying,
@@ -14,12 +15,6 @@ const AudioProgress = ({
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-
-  const formatTime = (time) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-  };
 
   const updateProgress = () => {
     setCurrentTime(audio?.currentTime);
@@ -47,43 +42,43 @@ const AudioProgress = ({
   };
 
   return (
-    <div className="flex gap-4 justify-between">
+    <div className="flex justify-between gap-4">
       <audio src={audio?.src} className="hidden"></audio>
-      <div className="flex items-end w-full">
-        <div className="flex gap-2 items-center w-full">
+      <div className="flex w-full items-end">
+        <div className="flex w-full items-center gap-2">
           <button
             type="button"
-            className="font-bold text-xl text-[#bfbfbf] transition-colors duration-300 hover:text-white"
+            className="text-xl font-bold text-[#bfbfbf] transition-colors duration-300 hover:text-white"
             onClick={playPreviousTrack}
           >
             <FaBackwardStep />
           </button>
           <div
-            className="relative w-[90%] bg-[#696969] rounded-[2px] h-1"
+            className="relative h-1 w-[90%] rounded-[2px] bg-[#696969]"
             onClick={seekAudio}
           >
             <div
-              className="h-1 bg-white rounded-[2px] transition-all duration-200"
+              className="h-1 rounded-[2px] bg-white transition-all duration-200"
               style={{ width: `${progress}%` }}
             />
           </div>
           <button
             type="button"
-            className="font-bold text-xl text-[#bfbfbf] transition-colors duration-300 hover:text-white"
+            className="text-xl font-bold text-[#bfbfbf] transition-colors duration-300 hover:text-white"
             onClick={playNextTrack}
           >
             <FaForwardStep />
           </button>
           {/* --------DURATION---------- */}
-          <span className="text-[#b6b6b6] font-medium text-[13px] leading-4 ml-2 w-[80px]">
+          <span className="ml-2 w-[80px] text-[13px] font-medium leading-4 text-[#b6b6b6]">
             {formatTime(currentTime)}/{formatTime(duration)}
           </span>
         </div>
       </div>
-      <div className="w-12 h-12 self-end z-[1] flex items-center justify-center shrink-0">
+      <div className="z-[1] flex h-12 w-12 shrink-0 items-center justify-center self-end">
         <button
           type="button"
-          className="w-full h-full bg-white text-black text-lg flex items-center justify-center rounded-full hover:scale-110 transition-all duration-300"
+          className="flex h-full w-full items-center justify-center rounded-full bg-white text-lg text-black transition-all duration-300 hover:scale-110"
           onClick={togglePlayPause}
         >
           {isPlaying ? <FaPause className="text-2xl" /> : <FaPlay />}
