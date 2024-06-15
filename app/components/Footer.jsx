@@ -7,7 +7,7 @@ import { navLinks } from "../lib";
 const Footer = () => {
   return (
     <div className="px-4 lg:px-36 bg-gradient flex flex-col items-center justify-center">
-      <div className="py-16 lg:py-20 flex flex-wrap flex-col-reverse lg:flex-row justify-between gap-4 gap-y-16 w-full">
+      <div className="py-12 lg:py-20 flex flex-wrap flex-col-reverse lg:flex-row justify-between gap-4 gap-y-16 w-full">
         {/* CONTACT INFO */}
         <div className="flex flex-col justify-center items-center gap-8">
           <Link

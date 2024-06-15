@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formspree/react": "^2.5.1",
+    "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "contentful": "^10.8.8",
     "framer-motion": "^11.2.10",

@@ -31,10 +31,10 @@ const LatestTracks = () => {
   };
 
   return (
-    <div className="px-4 py-8 lg:px-36 lg:py-12">
+    <div className="px-4 py-8 lg:px-36">
       <div className="flex items-center justify-center sm:justify-between">
         <h2
-          className={`text-center text-5xl text-brown lg:text-6xl ${fjalla.className}`}
+          className={`text-center text-4xl text-brown lg:text-5xl ${fjalla.className}`}
         >
           Latest Tracks
         </h2>
@@ -49,7 +49,7 @@ const LatestTracks = () => {
         <Loading height="h-[400px]" />
       ) : (
         <>
-          <div className="mt-20 grid grid-cols-auto-fill-minmax justify-center gap-[2rem_2rem] lg:gap-x-[3rem] xl:gap-x-16">
+          <div className="mt-8 grid grid-cols-auto-fill-minmax justify-center gap-[2rem_2rem] lg:mt-12 lg:gap-x-[3rem] xl:gap-x-16">
             {latestTracks.map((track, index) => (
               <TrackItem
                 key={track.id}

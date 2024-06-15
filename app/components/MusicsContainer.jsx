@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FaSpotify, FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
+import { LuDownload } from "react-icons/lu";
 import Link from "next/link";
 import AudioProgress from "./AudioProgress";
 import { useFetchMusics } from "../hooks/useFetchMusics";
@@ -139,9 +140,35 @@ function MusicItem({
   music,
 }) {
   const { artist, duration, title, src } = music;
+
+  const handleDownload = async () => {
+    const proxyUrl = `/api/download?url=${encodeURIComponent(src)}`;
+
+    try {
+      const response = await fetch(proxyUrl);
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.style.display = "none";
+      a.href = url;
+      a.download = `${title}.mp3`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Failed to download file:", error);
+    }
+  };
+
   return (
     <li
-      className={`group grid grid-cols-[auto,1fr,auto] rounded py-2 hover:bg-[#1d1d1d] ${
+      className={`group grid grid-cols-[auto,1fr,auto,auto] rounded py-2 hover:bg-[#1d1d1d] ${
         activeMusic === src && "bg-[#1d1d1d]"
       }`}
     >
@@ -177,6 +204,11 @@ function MusicItem({
       </div>
       <div className="flex w-14 items-center justify-center">
         <span className="text-[14px] opacity-60">{duration}</span>
+      </div>
+      <div className="flex w-14 items-center justify-center">
+        <button type="button" onClick={() => handleDownload(src)}>
+          <LuDownload />
+        </button>
       </div>
     </li>
   );

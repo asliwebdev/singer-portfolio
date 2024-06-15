@@ -130,12 +130,16 @@ const LatestTracksPlayer = ({
       </div>
       <div className="flex flex-col justify-center gap-3">
         <div className="flex items-center justify-center gap-3 sm:gap-6 sm:text-xl">
-          <button type="button" onClick={handlePrev}>
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="text-[#b3b3b3] transition-colors duration-300 hover:text-white"
+          >
             <FaBackwardStep />
           </button>
           <button
             type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-sm text-black"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-sm text-black transition-all duration-300 hover:scale-110"
             onClick={() => handlePlayPause(currentTrackIndex)}
           >
             {!isPlaying ? (
@@ -144,7 +148,11 @@ const LatestTracksPlayer = ({
               <GiPauseButton />
             )}
           </button>
-          <button type="button" onClick={handleNext}>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="text-[#b3b3b3] transition-colors duration-300 hover:text-white"
+          >
             <FaForwardStep />
           </button>
         </div>
