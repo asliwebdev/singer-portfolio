@@ -6,20 +6,20 @@ import SocialLinks from "./SocialLinks";
 const Hero = () => {
   return (
     <div className="min-h-[calc(100vh-60px)]">
-      <div className="min-h-[calc(100vh-60px)] flex flex-col-reverse gap-6 lg:flex-row justify-between px-4 lg:px-16">
-        <div className="lg:pl-20 flex justify-end flex-col lg:p-6">
+      <div className="flex min-h-[calc(100vh-60px)] flex-col-reverse gap-6 px-4 lg:flex-row lg:justify-between lg:px-16">
+        <div className="flex flex-col justify-start lg:justify-end lg:p-6 lg:pl-20">
           <h1
             className={`text-clampH1 text-brown lg:text-left ${fjalla.className}`}
           >
             Asadbek Odilov
           </h1>
-          <p className="mt-3 text-white sm:text-lg md:text-xl lg:text-2xl max-w-xl">
+          <p className="mt-3 max-w-xl text-white sm:text-lg md:text-xl lg:text-2xl">
             a professional singer captivating hearts throughout whole Uzbekistan
           </p>
-          <div className="mt-12 mb-32 flex flex-col-reverse lg:flex-row gap-8">
+          <div className="my-12 flex flex-col-reverse gap-8 lg:mb-32 lg:flex-row">
             <SocialLinks />
             <Link
-              className="shadow-2 bg-brown py-3 px-6 rounded-lg text-center hover:bg-transparent hover:text-brown text-black border border-brown transition-colors duration-300"
+              className="shadow-2 rounded-lg border border-brown bg-brown px-6 py-3 text-center text-black transition-colors duration-300 hover:bg-transparent hover:text-brown"
               href="/music"
             >
               Listen to my musics
@@ -31,7 +31,7 @@ const Hero = () => {
             src="/asadbek.png"
             alt="hero image"
             width={650}
-            height={640}
+            height={650}
             priority
           />
         </div>
