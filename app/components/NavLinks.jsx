@@ -10,12 +10,15 @@ const NavLinks = () => {
     <>
       {navLinks.map((link, index) => {
         return (
-          <li key={index} className="nav-links">
+          <li
+            key={index}
+            className={`${
+              link.url === pathname ? "active-link" : "nav-link"
+            } text-black`}
+          >
             <Link
               href={link.url}
-              className={`capitalize ${
-                link.url === pathname ? "text-green" : "text-black"
-              } text-[16px]`}
+              className="text-[16px] font-medium capitalize"
             >
               {link.text}
             </Link>

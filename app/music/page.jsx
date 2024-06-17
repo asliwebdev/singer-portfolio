@@ -7,9 +7,9 @@ export const metadata = {
 
 const Music = () => {
   return (
-    <div className="px-4 lg:px-16 py-6 lg:py-12">
+    <div className="min-h-[calc(100vh-473px)] px-4 py-6 lg:px-16 lg:py-12">
       <h2
-        className={`${fjalla.className} text-center text-brown font-bold text-4xl sm:text-clampH2 leading-[43.2px] lg:leading-[57.6px]`}
+        className={`${fjalla.className} text-center text-4xl font-bold leading-[43.2px] text-brown sm:text-clampH2 lg:leading-[57.6px]`}
       >
         Music
       </h2>

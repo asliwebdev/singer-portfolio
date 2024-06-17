@@ -10,12 +10,15 @@ const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
-      <div className="bg-brown h-[60px] px-4 lg:px-36 flex items-center justify-center">
-        <div className="flex justify-between items-center w-full">
-          <Link href="/" className="text-black text-lg font-medium">
+      <div className="flex h-[60px] items-center justify-center bg-brown px-4 lg:px-36">
+        <div className="flex w-full items-center justify-between">
+          <Link
+            href="/"
+            className="text-lg font-medium text-black lg:text-[20px]"
+          >
             Asadbek Odilov
           </Link>
-          <ul className="hidden lg:flex gap-8">
+          <ul className="hidden gap-8 lg:flex">
             <NavLinks />
           </ul>
           <button

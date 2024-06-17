@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-links a {
+.nav-link a {
   position: relative;
   padding: 0.3em 8px;
 }
 
 /* Fade in */
-.nav-links a::after {
+.nav-link a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -22,20 +22,38 @@
     transform 300ms;
 }
 
-.nav-links a:hover::after {
+.nav-link a:hover::after {
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
 }
 
 /* Scale from center */
-.nav-links a::after {
+.nav-link a::after {
   opacity: 1;
   transform: scale(0);
   transform-origin: center;
 }
 
-.nav-links a:hover::after {
+.nav-link a:hover::after {
   transform: scale(1);
+}
+
+.active-link a {
+  position: relative;
+  padding: 0.3em 8px;
+}
+.active-link a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: black;
+  opacity: 1;
+  transition:
+    opacity 300ms,
+    transform 300ms;
 }
 
 .hero-shadow {
