@@ -4,7 +4,6 @@ import axios from "axios";
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const url = searchParams.get("url");
-  console.log("Received URL:", url);
 
   if (!url) {
     return new Response(JSON.stringify({ error: "URL is required" }), {
@@ -17,7 +16,6 @@ export async function GET(request) {
     const normalizedUrl = decodedUrl.startsWith("//")
       ? `https:${decodedUrl}`
       : decodedUrl;
-    console.log("Normalized URL:", normalizedUrl);
 
     const response = await axios.get(normalizedUrl, {
       responseType: "arraybuffer",
