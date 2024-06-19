@@ -1,5 +1,4 @@
 import Image from "next/image";
-import InstagramPage from "../components/InstagramFeeds";
 import { fjalla } from "../lib/fonts";
 
 export const metadata = {
@@ -14,7 +13,7 @@ const About = () => {
       >
         About
       </h2>
-      <div className="mx-auto mt-10 flex max-w-5xl flex-col gap-y-6 md:flex-row md:gap-x-12">
+      <div className="mx-auto mt-10 flex max-w-5xl flex-col gap-y-6 max-md:items-center md:flex-row md:justify-between md:gap-x-12">
         <Image
           src="/home_about.JPG"
           alt="about image"
@@ -37,7 +36,7 @@ const About = () => {
           mollitia a laborum consequuntur odio nisi.
         </p>
       </div>
-      <div className="mx-auto mt-10 flex max-w-5xl flex-col gap-y-6 md:flex-row-reverse md:gap-x-12">
+      <div className="mx-auto mt-10 flex max-w-5xl flex-col gap-y-6 max-md:items-center md:flex-row-reverse md:justify-between md:gap-x-12">
         <Image
           src="/home_about.JPG"
           alt="about image"
@@ -60,12 +59,6 @@ const About = () => {
           mollitia a laborum consequuntur odio nisi.
         </p>
       </div>
-      <h3
-        className={`${fjalla.className} my-10 text-center text-3xl font-bold leading-[43.2px] text-brown md:text-4xl lg:leading-[57.6px] xl:text-5xl`}
-      >
-        Instagram Feed
-      </h3>
-      <InstagramPage />
     </div>
   );
 };
